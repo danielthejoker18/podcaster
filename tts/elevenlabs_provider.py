@@ -11,9 +11,9 @@ client = ElevenLabs(api_key=ELEVEN_API_KEY)
 
 VOICE_ID_MAP = {
     "narrator": "EXAVITQu4vr4xnSDxMaL",  # Sarah
-    "dick": "FGY2WhTYpPnrIDTdsKH5",      # Laura
+    "laura": "FGY2WhTYpPnrIDTdsKH5",      # Laura
     "sean": "IKne3meq5aSn9XLyUdCD",      # Charlie
-    "george": "JBFqnCBsd6RMkjVDRZzb",    # George
+    "dick": "JBFqnCBsd6RMkjVDRZzb",    # George
     "callum": "N2lVS1w4EtoT3dr4eOWO",    # Callum
     "aria": "9BWtsMINqrJLrRacOk9x",      # Aria
 }

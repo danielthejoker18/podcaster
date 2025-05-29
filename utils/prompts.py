@@ -69,7 +69,7 @@ Style: {style}
 Respond ONLY with raw valid JSON, exactly like this:
 {{
   "intro": "...",
-  "transitions": ["...", "...", "..."],
+  "topics": ["...", "...", "..."],
   "outro": "..."
 }}
 
@@ -92,7 +92,7 @@ Estilo: {style}
 Responda SOMENTE com JSON bruto e válido, exatamente assim:
 {{
   "intro": "...",
-  "transitions": ["...", "...", "..."],
+  "topicos": ["...", "...", "..."],
   "outro": "..."
 }}
 

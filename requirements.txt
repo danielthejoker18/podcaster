@@ -2,3 +2,22 @@ openai
 groq
 python-dotenv
 requests
+gtts
+# Bibliotecas de processamento de linguagem natural
+nltk
+# ElevenLabs (voz via API)
+elevenlabs
+
+# Coqui TTS
+TTS==0.22.0
+torch>=1.9.0
+torchaudio
+numpy
+scipy
+soundfile
+
+# �udio e sistema
+ffmpeg-python
+
+# Outros �teis no projeto
+tqdm

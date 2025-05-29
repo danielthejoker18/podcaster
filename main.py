@@ -8,10 +8,10 @@ from config import LANGUAGE
 import json
 
 def main():
-    theme = "melhores placas de video para jogos em 2024"
+    theme = "melhores placas de video para jogos em 2025"
     duration = 5
     speakers = ["dick", "sean"]
-    style = "comedy"
+    style = "descontraído"
 
     print(f"🎯 Tema: {theme}")
     plan = plan_topic(theme, duration, len(speakers), LANGUAGE)
@@ -61,9 +61,11 @@ def main():
 
     idx = 1
     for section in full_script:
+        section_title = section['section'].replace(" ", "_").replace("ç", "c").replace("ã", "a").replace("é", "e")  # simplificação básica
         for i, line in enumerate(section["dialogue"]):
             if isinstance(line, dict) and "speaker" in line and "text" in line:
-                filename = f"output/audio/{idx:02d}_{section['section'].replace(' ', '_')}_{i}_{line['speaker']}.mp3"
+                speaker = line["speaker"].lower()
+                filename = f"output/audio/{idx:02d}_{section_title}_{i}_{speaker}.mp3"
                 generate_audio(line["text"], filename, speaker=line["speaker"], lang=LANGUAGE)
         idx += 1
 
