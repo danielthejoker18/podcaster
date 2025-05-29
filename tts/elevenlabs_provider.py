@@ -1,35 +1,39 @@
 import os
 from elevenlabs.client import ElevenLabs
-from elevenlabs import Voice
 
-# Pega chave da API do .env
+# Carrega a chave da API
 ELEVEN_API_KEY = os.getenv("ELEVEN_API_KEY")
-
 if not ELEVEN_API_KEY:
     raise EnvironmentError("❌ ELEVEN_API_KEY não definida no .env.")
 
+# Inicializa cliente
 client = ElevenLabs(api_key=ELEVEN_API_KEY)
 
-# Mapeamento de nomes para voice IDs
 VOICE_ID_MAP = {
-    "narrator": "EXAVITQu4vr4xnSDxMaL",  # Substitua por um ID real
-    "dick": "TxGEqnHWrfWFTfGW9XjX",
-    "sean": "pNInz6obpgDQGcFmaJgB",
+    "narrator": "EXAVITQu4vr4xnSDxMaL",  # Sarah
+    "dick": "FGY2WhTYpPnrIDTdsKH5",      # Laura
+    "sean": "IKne3meq5aSn9XLyUdCD",      # Charlie
+    "george": "JBFqnCBsd6RMkjVDRZzb",    # George
+    "callum": "N2lVS1w4EtoT3dr4eOWO",    # Callum
+    "aria": "9BWtsMINqrJLrRacOk9x",      # Aria
 }
 
 def synthesize(text, output_path, lang="en", voice=None):
-    voice_id = VOICE_ID_MAP.get(voice, voice)
+    if not voice:
+        raise ValueError("❌ Nenhuma voz especificada para ElevenLabs.")
 
-    if voice_id is None:
-        raise ValueError(f"❌ Voice not found for speaker '{voice}'.")
+    voice_id = VOICE_ID_MAP.get(voice.lower())
+    if not voice_id:
+        raise ValueError(f"❌ Voz '{voice}' não encontrada no mapeamento de vozes.")
 
-    audio_bytes = client.generate(
+    audio_stream = client.text_to_speech.convert(
+        voice_id=voice_id,
+        model_id="eleven_multilingual_v2",
         text=text,
-        voice=voice_id,
-        model="eleven_multilingual_v2",  # ajuste conforme o necessário
-        stream=False
+        output_format="mp3_44100_128"
     )
 
-    # Salva o áudio em disco
+    # Salva o áudio iterando sobre o stream
     with open(output_path, "wb") as f:
-        f.write(audio_bytes)
+        for chunk in audio_stream:
+            f.write(chunk)
