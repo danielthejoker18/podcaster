@@ -5,7 +5,6 @@ from agents.moderator import generate_moderation
 from utils.audio import generate_audio
 from utils.assembler import assemble_podcast
 from config import LANGUAGE
-import json
 
 def main():
     theme = "melhores placas de video para jogos em 2025"

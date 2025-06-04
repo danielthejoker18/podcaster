@@ -30,7 +30,8 @@ def generate_script(section, speakers, style="casual", language=LANGUAGE):
     content = response.choices[0].message.content.strip()
 
     # Remove markdown fencing if present
-    cleaned = re.sub(r"^```(?:json)?\\n?|```$", "", content.strip(), flags=re.MULTILINE)
+    # Remove Markdown code fences that may wrap the JSON response
+    cleaned = re.sub(r'^```(?:json)?\n|```$', "", content.strip(), flags=re.MULTILINE)
 
     try:
         return json.loads(cleaned)
