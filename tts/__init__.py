@@ -3,8 +3,6 @@ from .macos_provider import synthesize as synthesize_macos
 from .coqui_provider import synthesize as synthesize_coqui
 from .elevenlabs_provider import synthesize as synthesize_elevenlabs
 
-import os
-
 def get_tts_provider(provider_name):
     if provider_name == "gtts":
         return synthesize_gtts

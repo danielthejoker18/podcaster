@@ -1,4 +1,3 @@
-import os
 from TTS.api import TTS
 from torch.serialization import add_safe_globals
 

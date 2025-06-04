@@ -1,5 +1,5 @@
 import os
-import subprocess
+# subprocess is unused; audio generation relies on the system 'say' command
 
 VOICE_ID_MAP = {
     "Reed (Português (Brasil))": "com.apple.eloquence.pt-BR.Reed",
@@ -32,7 +32,7 @@ def synthesize(text, output_path, lang="en", voice=None):
     result = os.system(ffmpeg_command)
 
     if result != 0:
-        print(f"❌ Erro ao converter áudio para mp3 usando ffmpeg.")
+        print("❌ Erro ao converter áudio para mp3 usando ffmpeg.")
 
     # Remove arquivo temporário
     if os.path.exists(temp_path):
