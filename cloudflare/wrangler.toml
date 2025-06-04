@@ -1,0 +1,7 @@
+name = "podcaster"
+main = "cloudflare/worker.py"
+compatibility_date = "2024-05-01"
+compatibility_flags = ["python_workers"]
+
+[build]
+command = "pip install -r requirements.txt"
