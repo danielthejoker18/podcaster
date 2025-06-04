@@ -14,14 +14,22 @@ def chat_completion(messages, model=MODELO, temperature=0.7):
     model = model or os.getenv("LLM_MODEL", "mistral-saba-24b")
 
     if PROVIDER == "openai":
-        return openai.ChatCompletion.create(
-            model=model,
-            messages=messages,
-            temperature=temperature
-        )
+        try:
+            return openai.ChatCompletion.create(
+                model=model,
+                messages=messages,
+                temperature=temperature
+            )
+        except Exception as e:
+            print(f"❌ Error communicating with OpenAI API: {e}")
+            return None
     elif PROVIDER == "groq":
-        return client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=temperature
-        )
+        try:
+            return client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=temperature
+            )
+        except Exception as e:
+            print(f"❌ Error communicating with Groq API: {e}")
+            return None
