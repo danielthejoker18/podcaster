@@ -1,0 +1,35 @@
+# ==========================================
+# 🎙️ AI Podcaster Configuration
+# ==========================================
+
+podcast:
+  # Name of your podcast show
+  name: "gaming pod"
+  # Language of the podcast (e.g., "pt", "en")
+  language: "pt"
+  
+episode:
+  # The main topic/theme for the episode
+  theme: "Melhores Jogos já lançados"
+  # Approximate duration in minutes
+  duration_minutes: 2
+  # Conversation style (e.g., "relaxed", "formal", "debate")
+  style: "descontraído e informativo"
+
+speakers:
+  # Configuration for each speaker in the podcast
+  - name: "Dick"
+    role: "host"
+    personality: "Entusiasta, faz piadas, adora rpgs"
+    # Path to the reference audio file for voice cloning
+    voice_file: "voices/dick.wav"
+  
+  - name: "Sean"
+    role: "guest"
+    personality: "Cético, faz piadas, adora jogos de ação"
+    # Path to the reference audio file for voice cloning
+    voice_file: "voices/sean.wav"
+
+audio:
+  # Text-to-Speech provider: "coqui" (recommended) or "gtts"
+  provider: "coqui"

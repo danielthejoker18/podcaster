@@ -1,0 +1,21 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+
+venv310/
+
+# Environment variables
+.env
+
+# macOS files
+.DS_Store
+
+# Audio/data outputs
+data/audio_clips/
+data/scripts/
+*.mp3
+*.wav
