@@ -18,6 +18,7 @@
 -   **📝 Script Generation**: Creates engaging, multi-speaker dialogues with distinct personalities.
 -   **🗣️ Realistic TTS**: Uses **Coqui TTS (XTTS v2)** for high-quality, emotive voices (or gTTS for fast prototyping).
 -   **🎧 Audio Assembly**: Combines intro, dialogue sections, and outro into a single seamless podcast file.
+-   **✨ Smart Audio Processing**: Automatically trims silence and cleans text for smoother playback.
 -   **🌍 Multi-language Support**: Configurable language support (default: Portuguese/English).
 
 ## 🛠️ Prerequisites
@@ -62,6 +63,7 @@ Before you begin, ensure you have the following installed:
       duration_minutes: 10
     speakers:
       - name: "Alice"
+        role: "host"
         voice_file: "voices/alice.wav"
     ```
 
@@ -130,6 +132,7 @@ podcaster/
 -   **📝 Geração de Roteiro**: Cria diálogos envolventes entre múltiplos oradores com personalidades distintas.
 -   **🗣️ TTS Realista**: Usa **Coqui TTS (XTTS v2)** para vozes emotivas de alta qualidade (ou gTTS para prototipagem rápida).
 -   **🎧 Montagem de Áudio**: Combina introdução, seções de diálogo e encerramento em um único arquivo de podcast contínuo.
+-   **✨ Processamento de Áudio Inteligente**: Remove silêncio automaticamente e limpa o texto para uma reprodução mais fluida.
 -   **🌍 Suporte Multi-idioma**: Suporte a idiomas configurável (padrão: Português/Inglês).
 
 ## 🛠️ Pré-requisitos
@@ -174,6 +177,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
       duration_minutes: 10
     speakers:
       - name: "Alice"
+        role: "host"
         voice_file: "voices/alice.wav"
     ```
 
